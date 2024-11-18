@@ -13,8 +13,8 @@ exports.airdrop = void 0;
 const web3_js_1 = require("@solana/web3.js");
 const airdrop = (address, amount) => __awaiter(void 0, void 0, void 0, function* () {
     const publicKey = new web3_js_1.PublicKey(address);
-    // const conn = new Connection("https://api.devnet.solana.com", "confirmed")
-    const conn = new web3_js_1.Connection("http://localhost:8899", "confirmed");
+    const conn = new web3_js_1.Connection("https://api.devnet.solana.com", "confirmed");
+    // const conn = new Connection("http://localhost:8899", "confirmed")
     const airdropSignature = yield conn.requestAirdrop(publicKey, web3_js_1.LAMPORTS_PER_SOL * amount);
     const latestBlockhash = yield conn.getLatestBlockhash();
     const confirmation = yield conn.confirmTransaction({
@@ -32,7 +32,7 @@ const airdrop = (address, amount) => __awaiter(void 0, void 0, void 0, function*
 });
 exports.airdrop = airdrop;
 // local
-(0, exports.airdrop)("3dS4FhFCejvqRsDScQrJyH5nTqSrebeSn3QdmjuLszKq", 1);
+// airdrop("3dS4FhFCejvqRsDScQrJyH5nTqSrebeSn3QdmjuLszKq", 1)
 // Dev 
-// airdrop("3BUoiPCqw77faEXhc3jnXw8DKkTE1thpG1H45zwzvt92", 1)
+(0, exports.airdrop)("3BUoiPCqw77faEXhc3jnXw8DKkTE1thpG1H45zwzvt92", 1);
 //# sourceMappingURL=index.js.map
